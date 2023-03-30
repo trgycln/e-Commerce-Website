@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <style type="text/tailwindcss">
+      @layer utilities {
+        .content-auto {
+          content-visibility: auto;
+        }
+      }
+    </style>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              clifford: "#da373d",
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+
+  <body>
+    <!-- Header -->
+    <header class="fixed z-10 bg-orange-500 h-20 w-full flex items-center z-5">
+      <!-- Navbar -->
+      <div class="flex justify-between w-full items-center px-3">
+        <h1 class="text-white font-bold whitespace-nowrap">E-TİCARET</h1>
+        <input
+          class="w-[200px] text-sm rounded-lg border-none py-1"
+          type="text"
+          placeholder="Search"
+        />
+        <div class="flex space-x-2 ml-2">
+          <button
+            id="basketBtn"
+            class="relative bg-black text-white w-20 p-2 rounded-lg outline-none hover:opacity-70 duration-500"
+          >
+            Sepet <span id="total-amount" class="bg-red-500 rounded-full px-2 absolute -top-2">0</span>
+          </button>
+          <button
+            class="hidden md:flex bg-indigo-600 text-white w-20 p-2 rounded-lg outline-none hover:opacity-70 duration-500"
+          >
+            Kayıt Ol
+          </button>
+          <button
+            class="hidden md:flex bg-green-600 text-white w-20 p-2 rounded-lg outline-none hover:opacity-70 duration-500"
+          >
+            Giriş Yap
+          </button>
+        </div>
+      </div>
+    </header>
+    <!-- Main -->
+    <main class="ml-5">
+      <!-- Category Section -->
+      <section class="pt-2">
+        <h1 class="font-bold mb-5">KATEGORİLER</h1>
+        <!-- Categories -->
+        <div id="category-list" class="space-x-3 flex flex-row">
+          <!-- Category Item -->
+        </div>
+      </section>
+
+      <!-- Product Section -->
+      <section class="mt-5">
+        <h1 class="font-bold mb-5 uppercase">Ürünler</h1>
+        <div id="product-list" class="flex justify-center"></div>
+      </section>
+    </main>
+
+    <!-- Basket Modal -->
+    <div class="modal-basket">
+      <div class="modalText relative">
+        <div class="basket-header">
+          <h1 class="text-center mt-2 font-bold mb-2">SEPETİM</h1>
+          <hr />
+          <img
+            id="closeBtn"
+            class="absolute top-2 right-2 cursor-pointer w-5"
+            src="./assets/images/closeBtn.png"
+            alt=""
+          />
+        </div>
+        <!-- Sepet İçeriği -->
+        <div id="basket-content" class="flex flex-col w-full h-[70%] overflow-y-auto">
+			
+		</div>
+		<div class="flex justify-center items-center" >Toplam : <span id="expense-display" class="text-green-800 font-bold">0</span> TL</div>
+      </div>
+    </div>
+    <script src="./main.js"></script>
+  </body>
+</html>
